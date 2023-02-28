@@ -24,3 +24,26 @@ Simplificando: observabilidade é quão bem você pode entender seu sistema comp
   - Capacidade de idenficar a ordem em que os eventos aconteceram
   - Identificar o erro e o contexto em que aconteceu
   - Capacidade de rastrear requisições entre microsserviços
+
+### Elastic Stack
+
+#### ELK Stack
+
+- Elasticsearch
+  - Search engine e analytics
+  - Apache Lucene
+  - 2010 - Elasticsearch N.V (Elastic)
+  - Rápido
+  - Escalável
+  - Interface API Rest
+  - Análise e visualização geoespacial
+  - Application, website e enterprise search
+  - Logging e analytics
+  - Trabalha de forma distribuída através de shards que possuem redundância de dados.
+  - Pode escalar milhares de servidores e manipular petabyte de dados
+
+- Logstash
+  - Processador de dados através de pipelines que consegue receber, transformar e enviar dados simultaneamente
+
+- Kibana
+  - Permite usuários a visualizarem os dados do elasticsearch em diversas perspectivas
