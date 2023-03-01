@@ -44,6 +44,13 @@ Simplificando: observabilidade é quão bem você pode entender seu sistema comp
 
 - Logstash
   - Processador de dados através de pipelines que consegue receber, transformar e enviar dados simultaneamente
+  - Engine coletora de dados em tempo real
+  - Inicio como manipulador de logs
+  - Trabalha com pipelines
+  - Recebe dados de múltiplas fontes
+  - Normaliza a transforma dados
+  - Envia dados para múltiplas fontes
+  - Plugins
 
 - Kibana
   - Permite usuários a visualizarem os dados do elasticsearch em diversas perspectivas
