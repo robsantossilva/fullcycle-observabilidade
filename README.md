@@ -54,3 +54,10 @@ Simplificando: observabilidade é quão bem você pode entender seu sistema comp
 
 - Kibana
   - Permite usuários a visualizarem os dados do elasticsearch em diversas perspectivas
+  - Ferramenta de visualização e exploração de dados
+  - Usada com: Logs, Análise de séries, Monitoramento de aplicações, e inteligência operacional
+  - Integração com Elasticsearch
+  - Agregadores e filtragem de dados
+  - Dashboards
+  - Gráficos interativos
+  - Mapas
