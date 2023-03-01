@@ -61,3 +61,30 @@ Simplificando: observabilidade é quão bem você pode entender seu sistema comp
   - Dashboards
   - Gráficos interativos
   - Mapas
+
+### Beats e Elastic Stack
+
+**Qual a diferença entre ELK Stack e Elastic Stack?**
+ELK Stack + Beats = Elastic Stack
+![](./.github/elastic-stack.png)
+
+
+- Beats foi anunciado em 2015
+- "Lightweight data shipper"
+- Agente Coletor de dados
+- Integrado facilmente com Elasticsearch ou Logstash
+- Logs, Métricas, Network data, Audit Data, Uptime, Monitoring
+- Você pode construir seu próprio Beat
+
+![](./.github/beats-platform.png)
+
+### Elastic
+- Empresa por trás das soluções
+- Cloud Solution
+- Oferecem plugins e recursos licenciados
+- Produtos
+  - APM
+  - Maps
+  - Site search
+  - App Search
+  - Infrastructure
