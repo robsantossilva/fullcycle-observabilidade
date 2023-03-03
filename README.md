@@ -88,3 +88,25 @@ ELK Stack + Beats = Elastic Stack
   - Site search
   - App Search
   - Infrastructure
+
+### Iniciando com Elasticsearch e Kibana
+https://www.elastic.co/pt/
+https://github.com/elastic/examples
+
+```bash
+docker compose up -d
+```
+
+### Visão geral do Kibana
+
+**Logs**
+Centralize logs de qualquer fonte. Pesquise, siga, automatize a detecção de anomalias e visualize tendências para que você possa agir mais rapidamente.
+
+**APM**
+Rastreie transações por meio de uma arquitetura distribuída e mapeie as interações de seus serviços para identificar facilmente gargalos de desempenho.
+
+**Metrics**
+Analise métricas de sua infraestrutura, aplicativos e serviços. Descubra tendências, preveja comportamentos, receba alertas sobre anomalias e muito mais.
+
+**Uptime**
+Monitore proativamente a disponibilidade de seus sites e serviços. Receba alertas e resolva problemas mais rapidamente para otimizar a experiência de seus usuários.
