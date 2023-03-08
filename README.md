@@ -110,3 +110,5 @@ Analise métricas de sua infraestrutura, aplicativos e serviços. Descubra tend�
 
 **Uptime**
 Monitore proativamente a disponibilidade de seus sites e serviços. Receba alertas e resolva problemas mais rapidamente para otimizar a experiência de seus usuários.
+
+### Metricbeat
