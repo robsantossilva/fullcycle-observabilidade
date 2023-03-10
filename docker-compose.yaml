@@ -23,7 +23,7 @@ services:
     ports:
       - 9200:9200
     networks:
-      - observability
+      - fullcycle-observabilidade_observability
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.13.0
@@ -34,7 +34,7 @@ services:
       ELASTICSEARCH_URL: http://elasticsearch:9200
       ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
     networks:
-      - observability
+      - fullcycle-observabilidade_observability
   metricbeat:
     image: docker.elastic.co/beats/metricbeat:7.13.0
     container_name: metricbeat
@@ -44,7 +44,7 @@ services:
       - ./beats/metric/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
     restart: on-failure
     networks:
-      - observability
+      - fullcycle-observabilidade_observability
   heartbeat:
     image: docker.elastic.co/beats/heartbeat:7.13.0
     container_name: heartbeat
@@ -53,19 +53,18 @@ services:
     environment:
       - setup.kibana.host=kibana:5601
     networks:
-      - observability
-  # apm:
-  #   image: docker.elastic.co/apm/apm-server-oss:7.13.0
-  #   container_name: apm
-  #   volumes:      
-  #   - ./apm/apm-server.yml:/usr/share/apm-server/apm-server.yml
-  #   ports:
-  #     - "8200:8200"
-  #   restart: on-failure
-  #   networks: 
-  #     - observability
+      - fullcycle-observabilidade_observability
+  apm:
+    image: docker.elastic.co/apm/apm-server-oss:7.13.0
+    container_name: apm
+    volumes:
+      - ./apm/apm-server.yml:/usr/share/apm-server/apm-server.yml
+    ports:
+      - "8200:8200"
+    restart: on-failure
+    networks:
+      - fullcycle-observabilidade_observability
 
 networks:
-  observability:
-    driver: bridge
-    # external: true
+  fullcycle-observabilidade_observability:
+    external: true

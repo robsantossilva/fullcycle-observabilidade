@@ -124,3 +124,57 @@ Monitore a disponibilidade dos serviços com sondagem ativa. Dada uma lista de U
 ```bash
 sudo chmod go-w heartbeat.yml
 ```
+
+### APM - Elastic Stack
+```yaml
+  apm:
+    image: docker.elastic.co/apm/apm-server-oss:7.13.0
+    container_name: apm
+    volumes:
+      - ./apm/apm-server.yml:/usr/share/apm-server/apm-server.yml
+    ports:
+      - "8200:8200"
+    restart: on-failure
+    networks:
+      - observability
+```
+
+```bash
+sudo chmod 777 apm-server.yml
+sudo chmod go-w apm-server.yml
+sudo chown root apm-server.yml
+```
+Instalando APM
+[Set up APM](https://www.elastic.co/guide/en/apm/guide/current/apm-quick-start.html#set-up-fleet-traces)
+
+App que vai ser monitorado pelo APM Elastic
+[./app](./app)
+
+### Logs
+
+[app/codeprogress/settings.py](app/codeprogress/settings.py)
+```python
+'handlers': {
+    'elasticapm': {
+        'level': 'WARNING',
+        'class': 'elasticapm.contrib.django.handlers.LoggingHandler',
+```
+
+[app/exemplo/views.py](app/exemplo/views.py)
+```python
+import logging
+logger = logging.getLogger('mysite')
+
+logger.warning(
+    'This is a warning!',
+    exc_info=True
+)
+```
+
+### Filebeat e Nginx
+[./nginx](./nginx)
+
+Precisa ser feito a instalação do filebeat no container do Nginx
+
+Filebeat
+[./nginx/filebeat.yml](./nginx/filebeat.yml)
