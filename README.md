@@ -112,3 +112,15 @@ Analise métricas de sua infraestrutura, aplicativos e serviços. Descubra tend�
 Monitore proativamente a disponibilidade de seus sites e serviços. Receba alertas e resolva problemas mais rapidamente para otimizar a experiência de seus usuários.
 
 ### Metricbeat
+Agente lightweight para métricas.
+
+Colete métricas dos seus sistemas e serviços. Da CPU à memória, do Redis ao NGINX e muito mais, o Metricbeat é uma maneira leve de enviar estatísticas do sistema e dos serviços.
+
+### Uptime e Heartbeat
+Agente lightweight para monitoramento de tempo de atividade.
+
+Monitore a disponibilidade dos serviços com sondagem ativa. Dada uma lista de URLs, o Heartbeat faz uma simples pergunta: você está vivo? O Heartbeat envia essa informação e o tempo de resposta para o restante
+
+```bash
+sudo chmod go-w heartbeat.yml
+```
