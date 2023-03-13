@@ -178,3 +178,8 @@ Precisa ser feito a instalação do filebeat no container do Nginx
 
 Filebeat
 [./nginx/filebeat.yml](./nginx/filebeat.yml)
+
+### Elastic Cloud
+https://www.elastic.co/pt/cloud/
+
+https://observability-deployment.kb.us-east-1.aws.found.io:9243/app/home#/tutorial/nginxLogs
