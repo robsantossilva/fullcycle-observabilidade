@@ -183,3 +183,26 @@ Filebeat
 https://www.elastic.co/pt/cloud/
 
 https://observability-deployment.kb.us-east-1.aws.found.io:9243/app/home#/tutorial/nginxLogs
+
+### Prometheus
+
+![](.github/prometheus.png)
+
+- From metrics to insights.
+- Power your metrics and alerting with a leading open-source monitoring solution.
+- É um toolkit de monitoramento e alerta de sistema open-source
+- Criado pela SoundCloud
+- Faz parte da Cloud Native Computing Foundation
+- Dados dimensionais
+- Consultas poderosas
+- Fácil visualização dos dados em conjunto com Grafana
+- Storage eficiente
+- Simples
+- Alerta inteligente
+- Diversidade de clients e integrações
+
+#### Conceitos iniciais
+
+##### Funcionamento
+- **[Elastic Stack]** Um **agente** instalado na aplicação notifica constantemente o serviço monitor
+- **[Prometheus]** O Serviço monitor busca as informações na aplicações
