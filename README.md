@@ -203,6 +203,35 @@ https://observability-deployment.kb.us-east-1.aws.found.io:9243/app/home#/tutori
 
 #### Conceitos iniciais
 
-##### Funcionamento
+#### Funcionamento
 - **[Elastic Stack]** Um **agente** instalado na aplicação notifica constantemente o serviço monitor
 - **[Prometheus]** O Serviço monitor busca as informações na aplicações
+
+#### Coleta métricas via HTTP
+[Prometheus] **--- (15s) pull via http --->** [Aplicação endpoint /metrics]
+- Você adapta sua aplicação ao formato do prometheus
+
+![](./.github/data-format-for-prometheus.png)
+
+#### Dinâmica dos exporters
+
+**Informações relevantes ao negócio**
+- Quantidade de compras
+- Tempo de resposta no processo de compra
+- Quantidade de usuarios logados
+- Utilização da feature x
+- Busca especifica no site
+
+**E quando não foi você quem desenvolveu?**
+- MySQL
+- Nginx / Apache
+- Servidor Linux
+- Etc...
+
+#### Exporters
+Um exportador atua como um proxy entre os aplicativos e o servidor Prometheus. Os exportadores usam um formato simples de chave-valor baseado em texto para coletar e expor métricas ao longo do tempo, via HTTP.
+
+[Prometheus] **--- (15s) pull via http --->** [Exporter /metrics] **<-->** [Server Linux]
+
+#### Arquitetura do Prometheus
+![](./.github/arquitetura-prometheus.png)
