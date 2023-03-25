@@ -235,3 +235,51 @@ Um exportador atua como um proxy entre os aplicativos e o servidor Prometheus. O
 
 #### Arquitetura do Prometheus
 ![](./.github/arquitetura-prometheus.png)
+
+##### Armazenamento
+- TSDB (Time Series Database)
+- Armazenamento de dados que mudam conforme o tempo
+- Labels para propriedades especificas de uma determinada métrica (error_type=500)
+- Otimização especifica para esse caso de uso, garantindo mais performance do que bancos de dados convencionais
+- Quanto mais novo os dados, mais precisão
+
+| Timestamp  | Erro 500 |                                       |
+| ---------- | -------- | ------------------------------------- |
+| 1569419430 | 12       | Até 1569419430 12 Erros               |
+| 1569419436 | 15       | De 1569419430 Até 1569419436 15 Erros |
+| 1569419450 | 17       | De 1569419436 Até 1569419450 17 Erros |
+
+
+##### Métricas: Counter
+- Valor incremental (Sempre)
+- Prometheus consegue absorver falhas se, por algum motivo, esse número tenha um eventual reset
+- Exemplo:
+  - Quantidade de visitas em um site
+  - Quantidade de vendas
+  - Quantidade de erros
+
+##### Métricas: Gauge
+- Valor que pode possuir variações com o tempo
+- Aumentar / Diminuir / Estabilizar
+- Exemplo:
+  - Qtd. usuários online
+  - Qtd. servidores ativos
+
+##### Métricas: Histogram
+- Distribuição de frequência
+- Medição é baseada em amostras
+- Consegue agregar valores
+
+##### Métricas: Summary
+- Muito similar ao histogram
+- Com summary os valores são calculados no servidor de aplicação não no prometheus
+- Bom para aproximação de valores
+- Ex.: request duration
+- De forma geral, é muito mais comum utilizar histogram
+
+##### PromQL
+- Prometheus Query Language (SQL do Prometheus)
+- Exemplo
+  - http_requests_total
+  - rate(http_requests_total[5m])
+  - http_requests_total{status!~"4.."}
