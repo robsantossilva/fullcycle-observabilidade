@@ -283,3 +283,11 @@ Um exportador atua como um proxy entre os aplicativos e o servidor Prometheus. O
   - http_requests_total
   - rate(http_requests_total[5m])
   - http_requests_total{status!~"4.."}
+
+##### cAdvisor
+
+MONITORAMENTO DE MÉTRICAS DE CONTÊINER DOCKER USANDO CADVISOR
+
+cAdvisor (abreviação de container Advisor) analisa e expõe o uso de recursos e dados de desempenho de contêineres em execução. cAdvisor expõe as métricas do Prometheus prontas para uso.
+
+https://prometheus.io/docs/guides/cadvisor/
