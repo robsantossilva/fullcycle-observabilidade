@@ -291,3 +291,8 @@ MONITORAMENTO DE MÉTRICAS DE CONTÊINER DOCKER USANDO CADVISOR
 cAdvisor (abreviação de container Advisor) analisa e expõe o uso de recursos e dados de desempenho de contêineres em execução. cAdvisor expõe as métricas do Prometheus prontas para uso.
 
 https://prometheus.io/docs/guides/cadvisor/
+
+#### Grafana
+O Grafana permite que você consulte, visualize, alerte e entenda suas métricas, não importa onde elas estejam armazenadas. Crie, explore e compartilhe belos painéis com sua equipe e promova uma cultura orientada por dados.
+
+https://grafana.com/oss/grafana/
