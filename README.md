@@ -296,3 +296,13 @@ https://prometheus.io/docs/guides/cadvisor/
 O Grafana permite que você consulte, visualize, alerte e entenda suas métricas, não importa onde elas estejam armazenadas. Crie, explore e compartilhe belos painéis com sua equipe e promova uma cultura orientada por dados.
 
 https://grafana.com/oss/grafana/
+
+#### Configurar prometheus para recuperar metricas
+prometheus/prometheus.yml
+```yaml
+- job_name: goapp
+    scrape_interval: 5s
+    static_configs:
+    - targets:
+      - app:8181
+```
