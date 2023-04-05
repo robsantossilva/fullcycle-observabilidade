@@ -21,7 +21,7 @@ var onlineUsers = prometheus.NewGauge(prometheus.GaugeOpts{
 var httpRequestTotal = prometheus.NewCounterVec(prometheus.CounterOpts{
 	Name: "goapp_http_requests_total",
 	Help: "Count of all HTTP requests for goapp",
-}, []string{})
+}, []string{"handler"})
 
 var httpDuration = prometheus.NewHistogramVec(prometheus.HistogramOpts{
 	Name: "goapp_http_request_duration",
@@ -46,12 +46,30 @@ func main() {
 		w.Write([]byte("Hello, world!"))
 	})
 
+	contact := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		time.Sleep(time.Duration(rand.Intn(5)) * time.Second)
+		w.Write([]byte("Contact"))
+	})
+
 	d := promhttp.InstrumentHandlerDuration(
 		httpDuration.MustCurryWith(prometheus.Labels{"handler": "home"}),
-		promhttp.InstrumentHandlerCounter(httpRequestTotal, home),
+		promhttp.InstrumentHandlerCounter(
+			httpRequestTotal.MustCurryWith(prometheus.Labels{"handler": "home"}),
+			home,
+		),
+	)
+
+	d2 := promhttp.InstrumentHandlerDuration(
+		httpDuration.MustCurryWith(prometheus.Labels{"handler": "contact"}),
+		promhttp.InstrumentHandlerCounter(
+			httpRequestTotal.MustCurryWith(prometheus.Labels{"handler": "contact"}),
+			contact,
+		),
 	)
 
 	http.Handle("/", d)
+	http.Handle("/contact", d2)
 
 	http.Handle("/metrics", promhttp.HandlerFor(r, promhttp.HandlerOpts{}))
 	log.Fatal(http.ListenAndServe(":8181", nil))
